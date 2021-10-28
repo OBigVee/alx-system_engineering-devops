@@ -1,7 +1,8 @@
 # Loops, conditions and parsing
 
 # Resources
-https://youtu.be/BC2neyc5GcI
+https://youtu.be/BC2neyc5GcI  
+
 **Read or watch:**
 
 * [Loops sample](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_01.html)
