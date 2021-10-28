@@ -50,9 +50,11 @@ thought about. `Shellcheck` is your friend! **All your Bash scripts must pass `S
 
 Examples:
 
-Not passing `Shellcheck`:
+Not passing `Shellcheck`:  
 
+![images](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x04-loops_conditions_and_parsing/images/shell-1.png)
 
-Passing `Shellcheck`:
+Passing `Shellcheck`:  
 
+![images](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x04-loops_conditions_and_parsing/images/shell-2.png)
 For every feedback, Shellcheck will provide a code that you can use to get more information about the issue, for example for code `SC2034`, you can browse https://github.com/koalaman/shellcheck/wiki/SC2034.
