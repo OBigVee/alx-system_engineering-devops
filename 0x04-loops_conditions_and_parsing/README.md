@@ -1,7 +1,7 @@
 # Loops, conditions and parsing
 
 # Resources
-https://youtu.be/BC2neyc5GcI  
+[youtube](https://youtu.be/BC2neyc5GcI)  
 
 **Read or watch:**
 
