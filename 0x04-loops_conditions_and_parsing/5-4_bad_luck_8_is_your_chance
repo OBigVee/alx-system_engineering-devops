@@ -4,7 +4,6 @@ bl="bad luck"
 gl="good luck"
 var="Best School"
 count=1
-#for (( = 1; i <= 10; i++))
 while [ "$count" -lt 10 ]
 do
 
