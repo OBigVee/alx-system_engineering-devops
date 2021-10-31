@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# ls special
+
+for item in *
+do
+    echo "$item" | cut -d '-' -f 2;
+done
