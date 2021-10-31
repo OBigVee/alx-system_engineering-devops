@@ -3,15 +3,19 @@
 bl="bad luck"
 gl="good luck"
 var="Best School"
-for ((i = 1; i <= 10; i++))
+count=1
+#for (( = 1; i <= 10; i++))
+while [ "$count" -lt 10 ]
 do
-	if [ "$i" -eq 4 ]
+
+	if [ "$count" -eq 4 ]
 	then 
 		echo "$bl"
-	elif [ "$i" -eq 8 ]
+	elif [ "$count" -eq 8 ]
 	then
 		echo "$gl"
 	else
 		echo "$var"
 	fi
+	count="$((count + 1))"
 done 
