@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+count=0
+var="Best School"
+while[ "$count"<10 ]; do echo "$var"; done
