@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# 5-4_bad_luck_8_is_your_chance
+bl="bad luck"
+gl="good luck"
+var="Best School"
+for ((i = 1; i <= 10; i++))
+do
+	if [ "$i" -eq 4 ]
+	then 
+		echo "$bl"
+	elif [ "$i" -eq 8 ]
+	then
+		echo "$gl"
+	else
+		echo "$var"
+	fi
+done 
