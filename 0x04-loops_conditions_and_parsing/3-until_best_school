@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# script uses until to print
+
+var="Best School"
+count=0
+until [ "$count" -gt 9 ]
+do 
+	echo "$var"
+	count=$((count+1))
+done
