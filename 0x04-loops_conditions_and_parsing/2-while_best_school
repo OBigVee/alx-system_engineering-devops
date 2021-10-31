@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# script uses the while loop to print var 10 times
 count=0
 var="Best School"
 while [ "$count" -lt 10 ]
