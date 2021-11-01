@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# print indefinitely
+# shellcheck disable=SC2050
+var="To infinity and beyond"
+while [ 0 -lt 1 ]
+do
+	echo "$var"
+	sleep 2
+done
