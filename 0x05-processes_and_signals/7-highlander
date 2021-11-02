@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Highlander
+# shellcheck disable=SC2050
+var="To inifinity and beyond"
+trap "echo I am invincible!!!" SIGTERM
+while [ 0 -lt 1 ]
+do 
+	echo "$var"
+	sleep 2
+done
