@@ -3,11 +3,11 @@
  scripts fetchs https://alx-intranet.hbtn.io/status """
 
 if __name__ == "__main__":
-    import urllib.request
+    import urllib.request as request
 
     #the_url = request)
 
-    with urllib.request.urlopen('https://alx-intranet.htbn.io/status') as req:
+    with request.urlopen("https://alx-intranet.hbtn.io/status") as req:
         html = req.read()
         print("Body response:")
         print("\t - type: {}".format(type(html)))
