@@ -1,5 +1,5 @@
 # networking_basics_2
-![images](123.png)
+![images](images/.png)
 ### Resources
 **Read or watch:**
 * [what is localhost](https://en.wikipedia.org/wiki/Localhost)
