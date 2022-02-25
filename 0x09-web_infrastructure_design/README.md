@@ -1,4 +1,15 @@
 ## Resources
+### Concepts
+For this project, students are expected to look at these concepts:
+
+* [DNS](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/DNS.md)
+* [Monitoring](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/Monitoring.md)
+* [Web Server](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/Web%20Server)
+* [Network basics](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/NetworkBasics.md)
+* [Load balancer](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/Load%20Balancer.md)
+* [Server](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/Server.md)  
+
+
 **Read or watch:**
 
 * Network basics concept page
