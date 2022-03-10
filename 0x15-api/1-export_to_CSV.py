@@ -30,19 +30,3 @@ if __name__ == "__main__":
             for jobDone in toDos.json()
             if jobDone.get("userId") == int(employeeId)
         ]
-
-        '''for jobDone in toDos.json():
-            if jobDone.get("userId") == int(
-                employeeId
-            ):  
-                file.write(
-                    """\n"{}","{}","{}","{}"\n""".format(
-                        employeeId,
-                        jobDone.get("username"),
-                        jobDone.get("completed"),
-                        jobDone.get("title"),
-                    )
-                )
-        '''
-        
-
