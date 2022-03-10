@@ -10,7 +10,6 @@ if __name__ == "__main__":
     user = requests.get(addressWithId)
 
     employeeName = user.json().get("name")
-    print(employeeId)
 
     todos = requests.get("https://jsonplaceholder.typicode.com/todos")
 
@@ -21,7 +20,7 @@ if __name__ == "__main__":
         if jobDone.get("employeeId") == int(employeeId):
             totalNumberOfTasks += 1
             if jobDone.get("completed"):
-                nTaskDone += 1
+                nTaskDone += 1  
 
     print(
         "Employee {} is done with task({}/{})".format(
