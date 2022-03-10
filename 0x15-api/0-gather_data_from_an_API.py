@@ -1,13 +1,16 @@
 #!/usr/bin/python3
+""" script uses this REST API(https://jsonplaceholder.typicode.com/) for a given employee ID,
+returns information about his/her Todo list progress.
+"""
 
-
+import json
 import requests
 import sys
 
 if __name__ == "__main__":
     employeeId = sys.argv[1]
-    addressWithId = "https://jsonplaceholder.typicode.com/users/{}".format(employeeId)
-    user = requests.get(addressWithId)
+    urlAddr = "https://jsonplaceholder.typicode.com/users/{}".format(employeeId)
+    user = requests.get(urlAddr)
 
     employeeName = user.json().get("name")
 
@@ -17,10 +20,10 @@ if __name__ == "__main__":
     totalNumberOfTasks = 0
 
     for jobDone in todos.json():
-        if jobDone.get("employeeId") == int(employeeId):
+        if jobDone.get("userId") == int(employeeId):
             totalNumberOfTasks += 1
             if jobDone.get("completed"):
-                nTaskDone += 1  
+                nTaskDone += 1
 
     print(
         "Employee {} is done with task({}/{})".format(
@@ -28,14 +31,19 @@ if __name__ == "__main__":
         )
     )
 
-    print(
-        "\n".join(
-            [
-                "\t " + jobDone.get("title")
-                for jobDone in todos.json()
-                if jobDone.get("employeeId") == int(employeeId)
-                and jobDone.get(nTaskDone)
-            ]
-        )
+    for jobDone in todos.json():
+        if jobDone.get("userId") == int(employeeId) and jobDone.get("completed"):
+            print("".join("\t" + jobDone.get("title")))
+        else:
+            "NO oo!"
+
+"""LIST  COMPREHENSION METHOD
+table = "\n".join(
+        [
+            "\t" + jobDone.get("title")
+            for jobDone in todos.json()
+            if jobDone.get("userId") == int(employeeId) and jobDone.get("completed")
+
+        ]
     )
-    # print("\n".join(["\t" + jobDone.get('title') for jobDone]))
+    print(table)"""
