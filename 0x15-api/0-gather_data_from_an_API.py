@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     for jobDone in todos.json():
         if jobDone.get("userId") == int(employeeId) and jobDone.get("completed"):
-            print("".join("\t" + jobDone.get("title")))
+            print("".join("\t " + jobDone.get("title")))
         else:
             "NO oo!"
 
