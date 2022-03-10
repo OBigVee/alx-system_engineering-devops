@@ -24,6 +24,7 @@ Requirements:
   * SPOF
   * Downtime when maintenance needed (like deploying new code web server needs to be restarted)
   * Cannot scale if too much incoming traffic
+![images](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/images/simpleWebTask.png)
 
 # 1. Distributed web infrastructure:
 On a whiteboard, design a three server web infrastructure that hosts the website `www.foobar.com`.
