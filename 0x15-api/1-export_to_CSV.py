@@ -20,7 +20,7 @@ if __name__ == "__main__":
     with open(fileName, "w") as file:
         [
             file.write(
-                """\n "{}","{}","{}","{}"\n""".format(
+                """\n"{}","{}","{}","{}" """.format(
                     employeeId,
                     jobDone.get("username"),
                     jobDone.get("completed"),
@@ -44,3 +44,5 @@ if __name__ == "__main__":
                     )
                 )
         '''
+        
+
