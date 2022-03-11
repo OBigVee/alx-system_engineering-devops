@@ -4,6 +4,7 @@ This script export data in the CSV format"""
 
 import sys
 import requests
+import csv
 
 if __name__ == "__main__":
     employeeId = sys.argv[1]
@@ -18,15 +19,31 @@ if __name__ == "__main__":
     fileName = "{}.csv".format(employeeId)
 
     with open(fileName, "w") as file:
+        write_format_file = csv.writer(file, delimiter=",", quoting=csv.QUOTE_ALL)
+
         [
-            file.write(
-                """\n"{}","{}","{}","{}" """.format(
+            write_format_file.writerow(
+                [
                     employeeId,
-                    jobDone.get("username"),
+                    employeeUname,
                     jobDone.get("completed"),
                     jobDone.get("title"),
-                )
+                ]
             )
             for jobDone in toDos.json()
             if jobDone.get("userId") == int(employeeId)
         ]
+
+'''for jobDone in toDos.json():
+            if jobDone.get("userId") == int(
+                employeeId
+            ):  
+                file.write(
+                    """\n"{}","{}","{}","{}"\n""".format(
+                        employeeId,
+                        employeeUname,
+                        jobDone.get("completed"),
+                        jobDone.get("title"),
+                    )
+                )
+        '''
