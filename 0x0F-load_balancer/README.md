@@ -4,7 +4,7 @@ For this project, students are expected to look at these concepts:
 * [Load balancer](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x09-web_infrastructure_design/Load%20Balancer.md)
 * [Web stack debugging](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x0F-load_balancer/web-stack-debugging.md)
 
-![images]()
+![images](https://github.com/OBigVee/alx-system_engineering-devops/blob/main/0x0F-load_balancer/images/load-balancer.png)
 
 ### Background Context
 You have been given 2 additional servers:
