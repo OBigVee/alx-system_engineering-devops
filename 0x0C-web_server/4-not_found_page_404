@@ -9,24 +9,25 @@ echo "Hello World!" | sudo tee -a /var/www/html/index.html
 echo "Ceci n'est pas une page" | sudo tee -a /var/www/html/404.html
 SERVER_CONFIG=\
 "server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-	server_name _;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://twitter.com/obigvee permanent;
-	}
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+            try_files \$uri \$uri/ =404;
+        }
+        
+        if (\$request_filename ~ redirect_me){
+            rewrite ^ https://twitter.com/obigvee permanent;
+        }
 
-    error_page 404 /404.html;
-	location = /404.html {
-		$sudo root /var/www/error/;
-		internal;
+        error_page 404 /404.html;
+        location = /404.html {
+            $sudo root /var/www/error/;
+            internal;
 
-    }
+        }
 }"
 
 sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
