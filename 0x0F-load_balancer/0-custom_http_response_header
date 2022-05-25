@@ -17,7 +17,7 @@ SERVER_CONFIG=\
 
         location / {
             try_files \$uri \$uri/ =404;
-            add_header x-Served-By \$hostname;
+            add_header X-Served-By \$hostname;
         }
         
         if (\$request_filename ~ redirect_me){
@@ -28,7 +28,7 @@ SERVER_CONFIG=\
         location = /404.html {
             root /var/www/error/;
             internal;
-            add_header x-Served-By \$hostname;
+            add_header X-Served-By \$hostname;
         }
 }"
 
