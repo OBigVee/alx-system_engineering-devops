@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# script prints Best School 10 times using until
+
+name="Best School"
+count=0
+until [ "$count" -gt 10 ]
+do
+	echo "$name"
+	count="$((count+1))"
+done
