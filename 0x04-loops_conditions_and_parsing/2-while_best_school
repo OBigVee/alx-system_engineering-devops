@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# scrip displays Best School 10 times using the
+# while loop
+name="Best School"
+count=0
+limit=10
+while [ "$count" -lt "$limit" ]
+do
+	echo "$name"
+	count="$((count+1))"
+done
