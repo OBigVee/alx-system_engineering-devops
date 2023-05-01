@@ -10,10 +10,10 @@ do
 echo "$start"
 	if [ "$start" -eq 4 ]
 	then
-		echo "bad luck from china"
+		echo "bad luck from China"
 	elif [ "$start" -eq 9 ]
 	then
-		echo "bad luck from japan"
+		echo "bad luck from Japan"
 	elif [ "$start" -eq 17 ]
 	then
 		echo "bad luck from Italy"
