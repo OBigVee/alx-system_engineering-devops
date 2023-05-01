@@ -11,7 +11,7 @@ hour=0
 while [ "$hour" -le 12 ]
 do 
 	echo "Hour: $hour";
-	star=0
+	star=1
 	while [ "$star" -lt 60 ]
 	do
 		echo "$star";
