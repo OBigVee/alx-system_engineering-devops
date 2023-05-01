@@ -3,7 +3,7 @@
 
 name="Best School"
 count=0
-until [ "$count" -gt 10 ]
+until [ "$count" == 10 ]
 do
 	echo "$name"
 	count="$((count+1))"
