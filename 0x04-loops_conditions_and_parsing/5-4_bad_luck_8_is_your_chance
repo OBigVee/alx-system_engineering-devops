@@ -9,6 +9,8 @@ count=0
 limit=10
 while [ "$count" -lt "$limit" ]
 do
+	
+	count=$((count+1))
 	if [ "$count" -eq 4 ]
 	then
 		echo "bad luck"
@@ -18,5 +20,4 @@ do
 	else
 		echo "$name"
 	fi
-	count=$((count+1))
 done
