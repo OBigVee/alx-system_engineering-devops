@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 # install NGINX web server
-apt-get update
-apt-get -y install nginx
+sudo apt-get update
+sudo apt-get -y install nginx
 ufw allow "Nginx HTTP"
 mkdir -p /var/www/html
 chmod -R 755 /var/www
