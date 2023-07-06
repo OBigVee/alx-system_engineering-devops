@@ -6,25 +6,3 @@ sudo apt-get -y install nginx
 sudo /etc/init.d/nginx restart
 
 sudo echo "Hello World!" | tee /var/www/html/index.html
-# Block serverr config
-SERVER_CONFIG=\
-"server{
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-
-    server_name _;
-    
-    location / {
-                    try_files \$uri \$uri/ =404;
-    }
-}"
-bash -c "echo -e '$SERVER_CONFIG' | tee /etc/nginx/sites-enabled/default"
-
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-        service nginx start
-else
-        service nginx restart
-fi
