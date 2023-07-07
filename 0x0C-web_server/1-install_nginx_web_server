@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# install NGINX web server
+# install NGINX web server on server
 
 apt-get update
 apt-get -y install nginx
