@@ -5,6 +5,7 @@ sudo apt-get -y install nginx
 sudo ufw allow "Nginx HTTP"
 mkdir -p /var/www/html
 chmod -R 755 /var/www
+echo "Hello World!" | sudo tee  /var/www/html/index.html
 echo "Ceci n'est pas une page" | sudo tee  /var/www/html/404.html
 SERVER_CONFIG=\
 "server {
@@ -23,7 +24,7 @@ SERVER_CONFIG=\
     location = /404.html {
         root /var/www/error/;
         internal;
-        
+
     }
 }"
 
