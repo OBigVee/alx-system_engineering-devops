@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# install nginx
+sudo apt-get update
+sudo apt=get -y install nginx
+sudo ufw allow "Nginx HTTP"
+mkdir -p /var/www/html
+chmod -R 755 /var/www
+
+echo "Hello World!" | sudo tee -a /var/www/html/index.html
+# Server configuration
+SERVER_CONFIG=\
+"server{
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debain.html;
+    server_name_;
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+    if (\$request_filename ~ redirect_me){
+        rewrite ^ https:://twitter.com/obigvee permanet;
+        }
+}"
+
+sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx-sites-enabled/default"
+
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+    sudo service nginx start
+else
+    sudo service nginx restart
+fi
