@@ -6,10 +6,10 @@ sudo ufw allow "Nginx HTTP"
 mkdir -p /var/www/html
 chmod -R 755 /var/www
 
-echo "Hello World!" | sudo tee -a /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html
 # Server configuration
 SERVER_CONFIG=\
-"server{
+"server {
     listen 80 default_server;
     listen [::]:80 default_server;
     root /var/www/html;
@@ -19,7 +19,7 @@ SERVER_CONFIG=\
         try_files \$uri \$uri/ =404;
     }
     if (\$request_filename ~ redirect_me){
-        rewrite ^ https:://twitter.com/obigvee permanent;
+        rewrite ^ https://twitter.com/obigvee permanent;
         }
 }"
 
