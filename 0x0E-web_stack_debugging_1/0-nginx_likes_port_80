@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# debug nginx not working on port 80
+
+# remove default file
+sudo rm /etc/nginx/sites-enabled/default
+# create symbolic link to the default file in sites=available
+sudo ln -s /etc/nginx/sites-available/default default;
+# restart
+sudo /etc/init.d/nginx restart
