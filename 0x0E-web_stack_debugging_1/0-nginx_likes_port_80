@@ -4,6 +4,6 @@
 # remove default file
 sudo rm /etc/nginx/sites-enabled/default
 # create symbolic link to the default file in sites=available
-sudo ln -s /etc/nginx/sites-available/default default;
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 # restart
 sudo /etc/init.d/nginx restart
