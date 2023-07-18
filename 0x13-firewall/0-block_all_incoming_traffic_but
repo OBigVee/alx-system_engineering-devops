@@ -7,5 +7,4 @@ sudo ufw allow https
 sudo ufw allow http
 
 sudo ufw enable
-
 sudo ufw status
