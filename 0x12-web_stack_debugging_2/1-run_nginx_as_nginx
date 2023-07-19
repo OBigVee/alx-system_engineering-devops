@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Install nginx if not already installed
+apt-get update
+apt-get install -y nginx
+
+# Set nginx to listen on all active IPS and port 8080
+sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+
+# Set nginx to run as the nginx user
+sed -i 's/user www-data;/user nginx;/g' /etc/nginx/nginx/conf
+
+# Restart nginx to apply the changes
+service nginx restart
