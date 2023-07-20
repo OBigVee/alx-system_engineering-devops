@@ -1,49 +1,20 @@
 #!/usr/bin/env bash
-# display_info() {
-#     local domain=$1
-#     local subdomain=$2
-#     local record_type
-
-#     if [[ -z $subdomain ]]; then
-#         subdomain_list=("www" "lb-01" "web-01" "web-02")
-#     else
-#         subdomain_list=("$subdomain")
-#     fi
-
-#     for sub in "${subdomain_list[@]}"; do
-#         record_type=$(dig +short "$sub.$domain" | awk 'NR==1{print $4}')
-#         destination=$(dig +short "$sub.$domain" | awk 'NR==1{print $1}')
-
-#         echo "The subdomain $sub is A $record_type record and points to $destination"
-#         done
-# }
-
-# # Entry point
-# if [[ $# -eq 0 ]]; then
-#     echo "Error: Please provide at least the domain name as an argument."
-#     exit 1
-# fi
-
-# domain=$1
-# subdomain=$2
-
-# display_info "$domain" "$subdomain"
 # displays information about subdomains
 
 audit() {  # audits domain passed as argument
-	dig $1.$2 +noall +answer > .tmp
-	awk -v var="$1" '{ print "The subdomain " var " is a " $4 " record and points to " $5 }' .tmp
-	rm .tmp
+    dig "$1"."$2" +noall +answer > .tmp
+    awk -v var="$1" '{ print "The subdomain " var " is a " $4 " record and points to " $5 }' .tmp
+    rm .tmp
 }
 
 if [ "$#" == 1 ]  # if subdomain is not defined
 then
-	subdomains=("www" "lb-01" "web-01" "web-02")
-	for sub in "${subdomains[@]}"
-	do
-		audit $sub "$1"
-	done
+    subdomains=("www" "lb-01" "web-01" "web-02")
+    for sub in "${subdomains[@]}"
+    do
+        audit "$sub" "$1"
+    done
 elif [ "$#" == 2 ]
 then
-	audit "$2" "$1"
+    audit "$2" "$1"
 fi
