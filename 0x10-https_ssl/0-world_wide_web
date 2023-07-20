@@ -14,7 +14,7 @@ function display_info() {
         record_type=$(dig +short "$sub.$domain" | awk 'NR==1{print $4}')
         destination=$(dig +short "$sub.$domain" | awk 'NR==1{print $1}')
 
-        echo "The subdomain $sub is a $record_type record and points to $destination"
+        echo "The subdomain $sub is A $record_type record and points to $destination"
         done
 }
 
