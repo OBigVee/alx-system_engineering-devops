@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-function display_info() {
+display_info() {
     local domain=$1
     local subdomain=$2
     local record_type
