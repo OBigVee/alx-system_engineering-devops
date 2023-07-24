@@ -1,44 +1,32 @@
 #!/usr/bin/python3
-"""script uses this REST API(https://jsonplaceholder.typicode.com/) for
-a given employee ID,
-returns information about his/her Todo list progress.
+"""
+Using REST API, for a given employee ID, returns information about
+his/her TODO list progress.
 """
 
-import json
-import requests
-import sys
+if __name__ == '__main__':
+    from requests import get
+    from sys import argv
 
+    #  get args
+    userId = int(argv[1])
 
-if __name__ == "__main__":
-    employee_id = sys.argv[1]
-    url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    user = requests.get(url)
-    employee_name = user.json().get("name")
-    todos = requests.get("https://jsonplaceholder.typicode.com/todos")
+    #  Fetch todos and user
+    todos = get('https://jsonplaceholder.typicode.com/todos').json()
+    user = get('https://jsonplaceholder.typicode.com/users/{}'.format(
+               userId)).json()
 
-    n_task_done = 0
-    total_number_of_tasks = 0
+    #  Extract user specific todos
+    user_todos = []
+    for todo in todos:
+        if todo['userId'] == userId:
+            user_todos.append(todo)
 
-    for job_done in todos.json():
-        if job_done.get("userId") == int(employee_id):
-            total_number_of_tasks += 1
-            if job_done.get("completed"):
-                n_task_done += 1
-    print("Employee {} is done with task({}/{})".format(
-        employee_name,
-        n_task_done,
-        total_number_of_tasks
-        ))
-    # print(
-    # f"Employee {
-    # employee_name
-    # }is done with task({n_task_done}/{total_number_of_tasks})")
+    #  get todos analytics
+    todos_total = len(user_todos)
+    todos_completed = sum(todo['completed'] for todo in user_todos)
 
-    for job_done in todos.json():
-        if (
-            job_done.get("userId") == int(employee_id)
-            and job_done.get("completed")
-        ):
-            print("".join("\t" + job_done.get("title")))
-        else:
-            "No oo!"
+    print('Employee {} is done with tasks({}/{}):'.format(
+          user['name'], todos_completed, todos_total))
+    for todo in [todo for todo in user_todos if todo['completed']]:
+        print('\t {}'.format(todo['title']))
