@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""script uses this REST API(https://jsonplaceholder.typicode.com/) for
+a given employee ID,
+returns information about his/her Todo list progress.
+"""
+
 import requests
 import sys
 import json
