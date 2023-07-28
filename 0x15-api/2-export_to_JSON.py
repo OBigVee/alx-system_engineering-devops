@@ -44,19 +44,17 @@ if __name__ == "__main__":
         if job_done["userId"] == userId:
             user_todo_list.append(job_done)
 
+    tasks_list = []
     # write to json
     with open(filename, "w", encoding="utf-8") as json_file:
         for user_analytic in user_todo_list:
             # writer.writeheader()
             data = {
-                str(userId): [
-                    {
                         "task": user_analytic["title"],
                         "completed": user_analytic["completed"],
                         "username": username,
-                    }
-                    for user_analytic in user_todo_list
-                ]
-            }
+                }
+            tasks_list.append(data)
 
-            json.dump(data, json_file)
+        data = {userId: tasks_list}
+        json.dump(data, json_file)
