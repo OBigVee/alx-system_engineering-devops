@@ -10,11 +10,14 @@ if __name__ == "__main__":
     from sys import argv
 
     userId = int(argv[1])
-    filename = str(userId)+".csv"
+    filename = str(userId)+'.csv'
+
     todo_ = "https://jsonplaceholder.typicode.com/todos"
     user_ = f"https://jsonplaceholder.typicode.com/users?id={userId}"
+
     todo_list_url = requests.get(todo_).json()
     user_url = requests.get(user_).json()
+
     name = user_url[0]['name']
     username = user_url[0]['username']
 
