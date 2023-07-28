@@ -29,7 +29,12 @@ if __name__ == "__main__":
     with open(filename, "w", encoding="utf-8") as csv_file:
         for user_analytic in user_todo_list:
             # writer.writeheader()
-            csv_file.write('"{}","{}","{}","{}"\n'.format(
-                userId, username,
-                user_analytic['completed'], user_analytic['title']
-            ))
+            row = '"{}","{}","{}","{}"\n'.format(
+                    userId, username,
+                    user_analytic['completed'], user_analytic['title'])
+            csv_file.write(row)
+
+            # csv_file.write('"{}","{}","{}","{}"\n'.format(
+            #     userId, username,
+            #     user_analytic['completed'], user_analytic['title']
+            # ))
