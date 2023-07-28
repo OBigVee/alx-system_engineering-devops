@@ -5,28 +5,27 @@ his/her TODO list progress.
 """
 
 if __name__ == '__main__':
-    from requests import get
+    import requests
     from sys import argv
 
-    #  get args
     userId = int(argv[1])
-
-    #  Fetch todos and user
-    todos = get('https://jsonplaceholder.typicode.com/todos').json()
-    user = get('https://jsonplaceholder.typicode.com/users/{}'.format(
+    todo_list = requests.get(
+        'https://jsonplaceholder.typicode.com/todos'
+        ).json()
+    user = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(
                userId)).json()
 
-    #  Extract user specific todos
-    user_todos = []
-    for todo in todos:
-        if todo['userId'] == userId:
-            user_todos.append(todo)
+    user_todo_list = []
+    for job_done in todo_list:
+        if job_done['userId'] == userId:
+            user_todo_list.append(job_done)
 
-    #  get todos analytics
-    todos_total = len(user_todos)
-    todos_completed = sum(todo['completed'] for todo in user_todos)
+    #  get todo analytics
+    todo_total = len(user_todo_list)
+    todo_completed = sum(job_done['completed'] for job_done in user_todo_list)
 
     print('Employee {} is done with tasks({}/{}):'.format(
-          user['name'], todos_completed, todos_total))
-    for todo in [todo for todo in user_todos if todo['completed']]:
-        print('\t {}'.format(todo['title']))
+          user['name'], todo_completed, todo_total))
+    cj = [job_done for job_done in user_todo_list if job_done['completed']]
+    for job_done in cj:
+        print('\t {}'.format(job_done['title']))
