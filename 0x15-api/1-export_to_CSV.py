@@ -10,24 +10,23 @@ if __name__ == "__main__":
     from sys import argv
 
     userId = int(argv[1])
-    filename = str(userId) + ".csv"
-    todo_list = requests.get(
-        "https://jsonplaceholder.typicode.com/todos").json()
-    user = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}".format(userId)
-    ).json()
-    name = user["name"]
-    username = user["username"]
+    filename = str(userId)+".csv"
+    todo_ = "https://jsonplaceholder.typicode.com/todos"
+    user_ = f"https://jsonplaceholder.typicode.com/users?id={userId}"
+    todo_list_url = requests.get(todo_).json()
+    user_url = requests.get(user_).json()
+    name = user_url[0]['name']
+    username = user_url[0]['username']
 
     user_todo_list = []
-    for job_done in todo_list:
+    for job_done in todo_list_url:
         if job_done["userId"] == userId:
             user_todo_list.append(job_done)
-
+    # write to csv
     with open(filename, "w", encoding="utf-8") as csv_file:
         for user_analytic in user_todo_list:
             # writer.writeheader()
-            csv_file.write("{},{},{},{}\n".format(
+            csv_file.write('"{}","{}","{}","{}"\n'.format(
                 userId, username,
                 user_analytic['completed'], user_analytic['title']
             ))
