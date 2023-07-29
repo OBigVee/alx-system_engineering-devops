@@ -33,47 +33,48 @@ Format must be:
             , ... ]
         }
 File name must be: todo_all_employees.json
+
+if __name__ == "__main__":
+    import requests
+    import json
+
+    filename = "todo_all_employees.json"
+
+    id_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    todo_ = "https://jsonplaceholder.typicode.com/todos"
+    todo_list_url = requests.get(todo_).json()
+    user_todo_list = []
+
+    for i in range (len(id_arr)):
+        user_ = f"https://jsonplaceholder.typicode.com/users?id={id_arr[i]}"
+        user_url = requests.get(user_).json()
+
+        name = user_url[0]["name"]
+        username = user_url[0]["username"]
+
+
+        for job_done in todo_list_url:
+            if job_done["userId"] == id_arr[i]:
+                user_todo_list.append(job_done)
+
+    tasks_list = []
+    # write to json
+    with open(filename, "w", encoding="utf-8") as json_file:
+        for user_analytic in user_todo_list:
+
+            print(f"stepping the loop one at a time {user_analytic}")
+            print("\n")
+                # writer.writeheader()
+            data = {
+                            "task": user_analytic["title"],
+                            "completed": user_analytic["completed"],
+                            "username": username,
+                    }
+            tasks_list.append(data)
+
+        data = {id_arr[i]: tasks_list for i in range(len(id_arr))}
+        json.dump(data, json_file, indent=4)
 """
-# if __name__ == "__main__":
-#     import requests
-#     import json
-
-#     filename = "todo_all_employees.json"
-
-#     id_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#     todo_ = "https://jsonplaceholder.typicode.com/todos"
-#     todo_list_url = requests.get(todo_).json()
-#     user_todo_list = []
-
-#     for i in range (len(id_arr)):
-#         user_ = f"https://jsonplaceholder.typicode.com/users?id={id_arr[i]}"
-#         user_url = requests.get(user_).json()
-
-#         name = user_url[0]["name"]
-#         username = user_url[0]["username"]
-
-
-#         for job_done in todo_list_url:
-#             if job_done["userId"] == id_arr[i]:
-#                 user_todo_list.append(job_done)
-
-#     tasks_list = []
-#     # write to json
-#     with open(filename, "w", encoding="utf-8") as json_file:
-#         for user_analytic in user_todo_list:
-
-#             print(f"stepping the loop one at a time {user_analytic}")
-#             print("\n")
-#                 # writer.writeheader()
-#             data = {
-#                             "task": user_analytic["title"],
-#                             "completed": user_analytic["completed"],
-#                             "username": username,
-#                     }
-#             tasks_list.append(data)
-
-#         data = {id_arr[i]: tasks_list for i in range(len(id_arr))}
-#         json.dump(data, json_file, indent=4)
 if __name__ == "__main__":
     from requests import get
     from sys import argv
