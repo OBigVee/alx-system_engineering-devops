@@ -10,7 +10,7 @@ DUMP_FILE="backup.sql"
 ARCHIVE_NAME="$CURRENT_DATE.tar.gz"
 
 # Generate MySQL dump
-mysqldump --all-databases -u root -p "$1"> "$DUMP_FILE"
+mysqldump --all-databases -uroot -p"$1"> "$DUMP_FILE"
 
 # compress the mySQL dump
-tar czvf "$ARCHIVE_NAME" "DUMP_FILE"
+tar czvf "$ARCHIVE_NAME" "$DUMP_FILE"
