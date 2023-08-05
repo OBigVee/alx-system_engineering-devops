@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# www
 sub_domains=("www" "lb-01" "web-01" "web-02")
 print_subdom()
 {
