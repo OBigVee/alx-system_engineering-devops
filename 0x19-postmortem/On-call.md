@@ -30,7 +30,7 @@ You can monitor thousands of things:
 * …
 
 ## A monitoring tool
-You need to configure one or multiple monitoring tool(s) to your on-call system, they are the ones that will actually detect any anomaly and report it to the on-call platform. Check out the Monitoring concept page for recommandations.
+You need to configure one or multiple monitoring tool(s) to your on-call system, they are the ones that will actually detect any anomaly and report it to the on-call platform. Check out the Monitoring concept page for recommendations.
 
 ## A on-call management system
 A lot of home tools can be used for that, you can for example in Nagios define on-call periods and then hook this up to a 3rd party service that can send a text message for you. This is fine when you are alone on-call but become very complicated when you have a team. That’s what a company started in 2009 is doing in the Cloud: PagerDuty. It’s a service that allows you to define on-call teams, escalation policies and services integration.
@@ -47,7 +47,7 @@ On-call teams are usually rated on 2 metrics:
 
 You obviously want these mean times to be as low as possible. MTA basically tells how good engineers are at answering their phone. MTR basically tells how good engineers are at solving issues.
 
-![img](/img/duty.png)
+![img](img/duty.png)
 
 ## PagerDuty
 We made a partnership so that Holberton School students can utilize PagerDuty for free. For every student a team is created (team of one), we will also have teams for group projects later on.
