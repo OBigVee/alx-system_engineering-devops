@@ -20,7 +20,7 @@ def recurse(subreddit, hot_list=[], after=None):
         allow_redirects=False,
         params=params,
     )
-    
+
     if r.ok:
         data = r.json().get("data")
         if len(data.get("children")) != 0:
