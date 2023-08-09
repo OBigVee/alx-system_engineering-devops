@@ -24,9 +24,9 @@ def recurse(subreddit, hot_list=[], after=None):
     if r.ok:
         data = r.json().get("data")
         if len(data.get("children")) != 0:
-            hot_list = [post.get("data") for post in data.get("children") ]
-            # for post in data.get("children"):
-            #     hot_list.append(post.get("data"))
+            #hot_list = [post.get("data") for post in data.get("children") ]
+            for post in data.get("children"):
+                hot_list.append(post.get("data"))
             after = data.get("after")
 
             if after is None:
