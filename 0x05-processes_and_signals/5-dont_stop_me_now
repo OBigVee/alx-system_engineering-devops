@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script stops file `4-to_infinity_and_beyond` process
+# shellcheck disable=SC2009
+prog_id=()
+readarray -t prog_id < <(pgrep -la -x "bash.*" | grep '4-to_infinity_and_beyond' | cut -d ' ' -f 1)
+for ((i = 0; i < "${#prog_pid[@]}"; i++)) do
+	kill -s SIGTERM "${prog_pid[1]}"
+done
